@@ -1,0 +1,173 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-beige-light: #F6EFE4;
+    --color-beige-soft: #EBDCC6;
+    --color-gold: #C9A24D;
+    --color-gold-light: #E8D08A;
+    --color-gold-dark: #9A7B2F;
+    --color-wood: #4A3426;
+    --color-wood-medium: #6B4A35;
+    --color-text-dark: #3A2A1F;
+    --color-text-light: #F6EFE4;
+  }
+
+  html {
+    font-family: 'Jost', sans-serif;
+    color: #3A2A1F;
+    background-color: #F6EFE4;
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+}
+
+/* Gold Gradient Text */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A24D 0%, #E8D08A 50%, #9A7B2F 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gold-gradient-light {
+  background: linear-gradient(135deg, #E8D08A 0%, #F6EFE4 50%, #C9A24D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Shimmer Animation for Gold Buttons and Highlights */
+@keyframes shine-sweep {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #9A7B2F 0%, #C9A24D 35%, #E8D08A 70%, #9A7B2F 100%);
+  background-size: 250% auto;
+  color: #3A2A1F;
+  border: 1px solid #C9A24D;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.btn-gold:hover {
+  background-position: right center;
+  box-shadow: 0 0 20px rgba(201, 162, 77, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: 0.6s;
+}
+
+.btn-gold:hover::after {
+  left: 140%;
+}
+
+.btn-secondary-beige {
+  background: transparent;
+  border: 1px solid #C9A24D;
+  color: #3A2A1F;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-secondary-beige:hover {
+  background-color: rgba(201, 162, 77, 0.12);
+  border-color: #9A7B2F;
+  transform: translateY(-1px);
+}
+
+.btn-secondary-wood {
+  background: transparent;
+  border: 1px solid #C9A24D;
+  color: #E8D08A;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.btn-secondary-wood:hover {
+  background-color: rgba(201, 162, 77, 0.15);
+  border-color: #E8D08A;
+  color: #F6EFE4;
+  transform: translateY(-1px);
+}
+
+/* Subtle wood texture pattern for dark sections */
+.wood-texture {
+  background-color: #4A3426;
+  background-image: radial-gradient(rgba(107, 74, 53, 0.4) 1px, transparent 0),
+    radial-gradient(rgba(154, 123, 47, 0.08) 1px, #4A3426 1px);
+  background-size: 40px 40px;
+  background-position: 0 0, 20px 20px;
+}
+
+/* Offset gold frame effect */
+.gold-offset-frame {
+  position: relative;
+}
+
+.gold-offset-frame::before {
+  content: '';
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  right: -12px;
+  bottom: -12px;
+  border: 1px solid #C9A24D;
+  pointer-events: none;
+  z-index: 0;
+  transition: transform 0.4s ease;
+}
+
+.gold-offset-frame:hover::before {
+  transform: translate(2px, 2px);
+}
+
+/* Floating animation for subtle particles */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-12px) rotate(180deg);
+    opacity: 0.7;
+  }
+}
+
+.animate-float-particle {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+/* Hide scrollbar for clean carousels */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Tatiane Santos Beauty",
+  "description": "Site institucional de Tatiane Santos Beauty, especialista em Russian Manicure e formadora de manicures em Amora, Seixal, Portugal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
